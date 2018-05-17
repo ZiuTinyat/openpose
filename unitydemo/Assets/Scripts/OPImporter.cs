@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 
 public class OPImporter : MonoBehaviour {
 
-    [DllImport("Dlltest2")]
+    /*[DllImport("Dlltest2")]
     public static extern int return_me_a_4();
     [DllImport("Dlltest2")]
     public static extern int return_me_a_5();
@@ -17,16 +17,16 @@ public class OPImporter : MonoBehaviour {
     [DllImport("openpose")]
     public static extern int testFunction();
     [DllImport("openpose")]
-    public static extern void demo();
+    public static extern void demo();*/
 
     // Use this for initialization
     void Start () {
         // Debug.Log(return_me_a_4()); // fail
-        Debug.Log(return_me_a_5());
-        Debug.Log(return_me_a_6());
-        Debug.Log(doAll(3, 5));
-        Debug.Log(testFunction());
-        demo();
+        //Debug.Log(return_me_a_5());
+        //Debug.Log(return_me_a_6());
+        //Debug.Log(doAll(3, 5));
+        //Debug.Log(testFunction());
+        //demo();
     }
 	
 	// Update is called once per frame
