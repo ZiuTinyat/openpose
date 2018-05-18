@@ -18,6 +18,7 @@
 
 // C++ std library dependencies
 #include <chrono> // `std::chrono::` functions and classes, e.g. std::chrono::milliseconds
+#include <iostream>
 #include <thread> // std::this_thread
 // Other 3rdparty dependencies
 // GFlags: DEFINE_bool, _int32, _int64, _uint64, _double, _string
@@ -28,6 +29,7 @@
 #endif
 // OpenPose dependencies
 #include <openpose/headers.hpp>
+#include <asio/asio.hpp>
 
 // See all the available parameter options withe the `--help` flag. E.g. `build/examples/openpose/openpose.bin --help`
 // Note: This command will show you flags for other unnecessary 3rdparty files. Check only the flags for the OpenPose
@@ -216,6 +218,33 @@ DEFINE_string(write_keypoint_format,    "yml",          "(Deprecated, use `write
 DEFINE_string(write_keypoint_json,      "",             "(Deprecated, use `write_json`) Directory to write people pose data in JSON format,"
                                                         " compatible with any OpenCV version.");
 
+class UDPClient
+{
+public:
+	UDPClient(asio::io_service& io_service, const std::string& host, const std::string& port) 
+	: io_service_(io_service), socket_(io_service, asio::ip::udp::endpoint(asio::ip::udp::v4(), 0)) {
+		asio::ip::udp::resolver resolver(io_service_);
+		asio::ip::udp::resolver::query query(asio::ip::udp::v4(), host, port);
+		asio::ip::udp::resolver::iterator iter = resolver.resolve(query);
+		endpoint_ = *iter;
+	}
+
+	~UDPClient()
+	{
+		socket_.close();
+	}
+
+	void send(const std::string& msg) {
+		socket_.send_to(asio::buffer(msg, msg.size()), endpoint_);
+		std::cout << "sent data: " << msg << std::endl;
+	}
+
+private:
+	asio::io_service& io_service_;
+	asio::ip::udp::socket socket_;
+	asio::ip::udp::endpoint endpoint_;
+};
+
 
 // If the user needs his own variables, he can inherit the op::Datum struct and add them
 // UserDatum can be directly used by the OpenPose wrapper because it inherits from op::Datum, just define
@@ -300,6 +329,21 @@ public:
                 const char key = (char)cv::waitKey(1);
                 if (key == 27)
                     this->stop();
+
+				// Add ASIO thing
+				asio::io_service service;
+				UDPClient client(service, "127.0.0.1", "8051");
+
+				float speed = 60;
+				float data = 0;
+
+				//while (true) {
+				int interval = 10;
+				float increase = interval / 1000.f * speed;
+				data += increase;
+				client.send(std::to_string(data));
+				//Sleep(interval);
+				//}
             }
         }
         catch (const std::exception& e)

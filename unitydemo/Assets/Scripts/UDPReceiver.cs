@@ -10,7 +10,8 @@ using System.Threading;
 public class UDPReceiver : MonoBehaviour
 {
 
-    Vector3 storedPos;
+    //Vector3 storedPos;
+    float storedData;
 
     // receiving Thread
     Thread receiveThread;
@@ -22,43 +23,11 @@ public class UDPReceiver : MonoBehaviour
     // public string IP = "127.0.0.1"; default local
     public int port; // define > init
 
-    // infos
-    public string lastReceivedUDPPacket = "";
-    public string allReceivedUDPPackets = ""; // clean up this from time to time!
-
-
-    // start from shell
-    /*private static void Main()
-    {
-        UDPReceiver receiveObj = new UDPReceiver();
-        receiveObj.init();
-
-        string text = "";
-        do
-        {
-            text = Console.ReadLine();
-        }
-        while (!text.Equals("exit"));
-    }*/
-    // start from unity3d
     public void Start()
     {
 
         init();
     }
-
-    // OnGUI
-    //void OnGUI()
-    //{
-    //    Rect rectObj = new Rect(40, 10, 200, 400);
-    //    GUIStyle style = new GUIStyle();
-    //    style.alignment = TextAnchor.UpperLeft;
-    //    GUI.Box(rectObj, "# UDPReceive\n127.0.0.1 " + port + " #\n"
-    //                + "shell> nc -u 127.0.0.1 : " + port + " \n"
-    //                + "\nLast Packet: \n" + lastReceivedUDPPacket
-    //                + "\n\nAll Messages: \n" + allReceivedUDPPackets
-    //            , style);
-    //}
 
     // init
     private void init()
@@ -68,17 +37,7 @@ public class UDPReceiver : MonoBehaviour
 
         // define port
         port = 8051;
-
-        // status
-        print("Sending to 127.0.0.1 : " + port);
-        print("Test-Sending to this Port: nc -u 127.0.0.1  " + port + "");
-
-
-        // ----------------------------
-        // Abhören
-        // ----------------------------
-        // Lokalen Endpunkt definieren (wo Nachrichten empfangen werden).
-        // Einen neuen Thread für den Empfang eingehender Nachrichten erstellen.
+        
         receiveThread = new Thread(
             new ThreadStart(ReceiveData));
         receiveThread.IsBackground = true;
@@ -93,7 +52,6 @@ public class UDPReceiver : MonoBehaviour
         client = new UdpClient(port);
         while (true)
         {
-
             try
             {
                 // Bytes empfangen.
@@ -105,14 +63,9 @@ public class UDPReceiver : MonoBehaviour
 
                 // Den abgerufenen Text anzeigen.
                 print(">> " + text);
+                
 
-                // latest UDPpacket
-                lastReceivedUDPPacket = text;
-
-                // ....
-                allReceivedUDPPackets = allReceivedUDPPackets + text;
-
-                storedPos = StringToVector3(text);
+                storedData = float.Parse(text);
 
             }
             catch (Exception err)
@@ -121,15 +74,7 @@ public class UDPReceiver : MonoBehaviour
             }
         }
     }
-
-    // getLatestUDPPacket
-    // cleans up the rest
-    public string getLatestUDPPacket()
-    {
-        allReceivedUDPPackets = "";
-        return lastReceivedUDPPacket;
-    }
-
+    
     public static Vector3 StringToVector3(string sVector)
     {
         // Remove the parentheses
@@ -152,6 +97,6 @@ public class UDPReceiver : MonoBehaviour
 
     void Update()
     {
-        transform.position = storedPos + 2 * Vector3.up;
+        transform.rotation = Quaternion.Euler(0f, storedData, 0f);
     }
 }

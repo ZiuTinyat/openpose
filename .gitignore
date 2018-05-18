@@ -84,6 +84,9 @@ tags
 # Allowing this file (removed *.user for Qt)
 !*.vcxproj.user
 
+######################### 3rd Party Dependencies #########################
+3rdparty/asio/
+
 ######################### Caffe Files / Folders #########################
 # User's build configuration
 Makefile
