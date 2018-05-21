@@ -9,94 +9,97 @@ using System.Threading;
 
 public class UDPReceiver : MonoBehaviour
 {
+    // Singleton
+    private static UDPReceiver instance = null;
 
-    //Vector3 storedPos;
-    float storedData;
+    // Threading
+    private bool CloseThreadFlag = true;
+    private static Mutex ReceivingMutex = new Mutex();
+    private Thread receiveThread;
 
-    // receiving Thread
-    Thread receiveThread;
-
-    // udpclient object
-    UdpClient client;
-
-    // public
-    // public string IP = "127.0.0.1"; default local
+    // UDP receiver
+    private UdpClient client;
     public int port; // define > init
+    
+    private string receivedData = "";
 
-    public void Start()
+    // Interface
+    public static string ReceivedData { get { return instance.receivedData; } }
+    public static void BeginReceiving(int portNumber = 8051)
     {
+        instance.port = portNumber;
+        instance.StartReceivingThread();
+    }
+    public static void StopReceiving()
+    {
+        instance.StopReceivingThread();
+    }
+    public static bool IsRunning { get { return !instance.CloseThreadFlag; } }
 
-        init();
+    // Private
+    private void Awake()
+    {
+        instance = this;
     }
 
-    // init
-    private void init()
+    private void StartReceivingThread()
     {
-        // Endpunkt definieren, von dem die Nachrichten gesendet werden.
-        print("UDPSend.init()");
+        if (!CloseThreadFlag) return; // already started
 
-        // define port
-        port = 8051;
-        
-        receiveThread = new Thread(
-            new ThreadStart(ReceiveData));
+        CloseThreadFlag = false;
+        receiveThread = new Thread(new ThreadStart(Receiving));
         receiveThread.IsBackground = true;
         receiveThread.Start();
-
     }
 
-    // receive thread
-    private void ReceiveData()
+    private void Receiving()
     {
+        Debug.Log("Receive start");
+        ReceivingMutex.WaitOne();
 
         client = new UdpClient(port);
-        while (true)
+        while (!CloseThreadFlag)
         {
             try
             {
-                // Bytes empfangen.
                 IPEndPoint anyIP = new IPEndPoint(IPAddress.Any, 0);
-                byte[] data = client.Receive(ref anyIP);
-
-                // Bytes mit der UTF8-Kodierung in das Textformat kodieren.
+                client.Receive(ref anyIP);
+                byte[] data = client.Receive(ref anyIP);                
                 string text = Encoding.UTF8.GetString(data);
-
-                // Den abgerufenen Text anzeigen.
                 print(">> " + text);
-                
-
-                storedData = float.Parse(text);
-
+                InputText(text);
             }
-            catch (Exception err)
+            catch(Exception err)
             {
-                print(err.ToString());
+                Debug.Log("Receive error: " + err.ToString());
             }
         }
-    }
-    
-    public static Vector3 StringToVector3(string sVector)
-    {
-        // Remove the parentheses
-        if (sVector.StartsWith("(") && sVector.EndsWith(")"))
-        {
-            sVector = sVector.Substring(1, sVector.Length - 2);
-        }
 
-        // split the items
-        string[] sArray = sVector.Split(',');
-
-        // store as a Vector3
-        Vector3 result = new Vector3(
-            float.Parse(sArray[0]),
-            float.Parse(sArray[1]),
-            float.Parse(sArray[2]));
-
-        return result;
+        Debug.Log("Receive end");
+        ReceivingMutex.ReleaseMutex();
     }
 
-    void Update()
+    private void StopReceivingThread()
+    {        
+        if (CloseThreadFlag) return; // already stopped
+        
+        client.Close();
+        CloseThreadFlag = true;
+
+        ReceivingMutex.WaitOne();
+        receiveThread.Abort();
+        Debug.Log("thread aborted");
+        ReceivingMutex.ReleaseMutex();
+    }
+
+    private void InputText(string text)
     {
-        transform.rotation = Quaternion.Euler(0f, storedData, 0f);
+        receivedData = text;
+    }
+
+    // In case of abrupt exit of program
+    private void OnDestroy()
+    {
+        StopReceiving();
     }
 }
