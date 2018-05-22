@@ -6,6 +6,7 @@ using UnityEngine;
 public struct AnimData {
     public AnimData(string text)
     {
+        isValid = false;
         totalPosition = new Vector3();
         jointAngles = new List<Vector3>();
         if (text.StartsWith("AnimData:"))
@@ -14,6 +15,7 @@ public struct AnimData {
             try
             {
                 this = JsonUtility.FromJson<AnimData>(text);
+                isValid = true;
             }
             catch (Exception err)
             {
@@ -22,9 +24,10 @@ public struct AnimData {
             }
         }
     }
+    public bool isValid;
     public Vector3 totalPosition;
     public List<Vector3> jointAngles;
-    public Quaternion jointAngleToRotation(int index)
+    public Quaternion jointAngleToRotation(int index) // rotate locally
     {
         if (jointAngles == null)
         {
@@ -44,9 +47,8 @@ public struct AnimData {
     }
     public static Quaternion ToRotation(Vector3 angle)
     {
-        return Quaternion.Euler(angle.x, 0f, 0f) 
-            * Quaternion.Euler(0f, 0f, -angle.y) 
-            * Quaternion.Euler(0f, -angle.z, 0f);
-    }
-	
+        return Quaternion.AngleAxis(angle.x, Vector3.left)
+            * Quaternion.AngleAxis(angle.y, Vector3.down)
+            * Quaternion.AngleAxis(angle.z, Vector3.back);
+    }	
 }
