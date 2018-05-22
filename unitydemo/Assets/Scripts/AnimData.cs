@@ -52,3 +52,21 @@ public struct AnimData {
             * Quaternion.AngleAxis(angle.z, Vector3.back);
     }	
 }
+
+public struct AnimDataSet
+{
+    public AnimDataSet(string text)
+    {
+        dataList = new List<AnimData>();
+        try
+        {
+            this = JsonUtility.FromJson<AnimDataSet>(text);
+        }
+        catch (Exception err)
+        {
+            Debug.Log(err.ToString());
+            Debug.Log(text);
+        }
+    }
+    public List<AnimData> dataList;
+}

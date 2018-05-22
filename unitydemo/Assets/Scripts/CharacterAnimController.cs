@@ -31,7 +31,7 @@ public class CharacterAnimController : MonoBehaviour {
         data.Parse(UDPReceiver.ReceivedData);
         if(data.isValid)
         {
-            //Joints[0].position = -data.totalPosition + Offset;
+            Joints[0].position = -data.totalPosition + Offset;
             // TODO: global rotation REMIND GINES
             //Joints[0].localRotation = InitRotations[0];
             //Joints[0].Rotate(new Vector3(-data.jointAngles[0].x, data.jointAngles[0].y, data.jointAngles[0].z), Mathf.Rad2Deg);
