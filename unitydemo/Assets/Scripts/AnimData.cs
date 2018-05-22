@@ -27,7 +27,7 @@ public struct AnimData {
     public bool isValid;
     public Vector3 totalPosition;
     public List<Vector3> jointAngles;
-    public Quaternion jointAngleToRotation(int index) // rotate locally
+    public Quaternion jointAngleToRotation(int index) // deprecated
     {
         if (jointAngles == null)
         {
@@ -45,7 +45,7 @@ public struct AnimData {
     {
         this = new AnimData(text);
     }
-    public static Quaternion ToRotation(Vector3 angle)
+    public static Quaternion ToRotation(Vector3 angle) // deprecated
     {
         return Quaternion.AngleAxis(angle.x, Vector3.left)
             * Quaternion.AngleAxis(angle.y, Vector3.down)
@@ -57,10 +57,12 @@ public struct AnimDataSet
 {
     public AnimDataSet(string text)
     {
+        isValid = false;
         dataList = new List<AnimData>();
         try
         {
             this = JsonUtility.FromJson<AnimDataSet>(text);
+            isValid = true;
         }
         catch (Exception err)
         {
@@ -68,5 +70,6 @@ public struct AnimDataSet
             Debug.Log(text);
         }
     }
+    public bool isValid;
     public List<AnimData> dataList;
 }
