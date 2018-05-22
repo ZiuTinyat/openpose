@@ -59,15 +59,15 @@ public class CharacterAnimController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(!LoadDataFile && frameData.isValid) // streaming
+        if (!LoadDataFile) // streaming
         {
             frameData.Parse(UDPReceiver.ReceivedData);
+            if (frameData.isValid) UpdateModel();
         }
-        else if (LoadDataFile && dataSet.isValid) // data file
+        else // data file
         {
             // TODO play
             // frameData = Something.GetCurrentFrame();
         }
-        UpdateModel();
     }
 }
