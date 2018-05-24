@@ -1,23 +1,25 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 
 public class CharacterAnimController : MonoBehaviour {
 
     [SerializeField] Vector3 Offset = new Vector3(-20f, 74f, -210f);
-    [SerializeField] bool LoadDataFile = false;
-    [SerializeField] string FileName = "AnimDataFile.json";
+    //[SerializeField] bool LoadDataFile = false;
+    //[SerializeField] string FileName = "AnimDataFile.json";
     [SerializeField] List<Transform> Joints;
 
     private Dictionary<int, Quaternion> InitRotations = new Dictionary<int, Quaternion>();
-    private AnimDataSet dataSet;
     private AnimData frameData;
     
     void Start () {
-        if (!LoadDataFile) InitStreaming();
-        else InitLoadDataFile();
+        switch (Controller.Mode)
+        {
+            case PlayMode.Stream: InitStreaming(); break;
+            case PlayMode.FileJson: InitLoadDataFile(); break;
+            default: InitStreaming(); break;
+        }
     }
 
     private void InitStreaming()
@@ -32,12 +34,7 @@ public class CharacterAnimController : MonoBehaviour {
 
     private void InitLoadDataFile()
     {
-        string filePath = Path.Combine(Application.streamingAssetsPath, FileName);
-        if (File.Exists(filePath))
-        {
-            string dataAsJson = File.ReadAllText(filePath);
-            dataSet = new AnimDataSet(dataAsJson);
-        }
+        //DataFrameController.Init("");
     }
 
     private void UpdateModel()
@@ -59,15 +56,12 @@ public class CharacterAnimController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (!LoadDataFile) // streaming
+        switch (Controller.Mode)
         {
-            frameData.Parse(UDPReceiver.ReceivedData);
-            if (frameData.isValid) UpdateModel();
+            case PlayMode.Stream: frameData.Parse(UDPReceiver.ReceivedData); break;
+            default: frameData.Parse(UDPReceiver.ReceivedData); break;
         }
-        else // data file
-        {
-            // TODO play
-            // frameData = Something.GetCurrentFrame();
-        }
+
+        if (frameData.isValid) UpdateModel();
     }
 }

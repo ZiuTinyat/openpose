@@ -19,15 +19,15 @@ public class UDPReceiver : MonoBehaviour
 
     // UDP receiver
     private UdpClient client;
-    public int port; // define > init
+    public int port = 8051; // define > init
     
     private string receivedData = "";
 
     // Interface
+    public static int PortNumber { get { return instance.port; } }
     public static string ReceivedData { get { return instance.receivedData; } }
-    public static void BeginReceiving(int portNumber = 8051)
+    public static void BeginReceiving()
     {
-        instance.port = portNumber;
         instance.StartReceivingThread();
     }
     public static void StopReceiving()

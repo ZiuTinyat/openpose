@@ -20,7 +20,7 @@ public class UDPSender : MonoBehaviour
     UdpClient client;
 
     // gui
-    string strMessage = "";
+    //string strMessage = "";
 
 
     // call it from shell (as program)
