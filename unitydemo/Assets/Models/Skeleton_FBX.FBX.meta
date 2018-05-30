@@ -1,0 +1,773 @@
+fileFormatVersion: 2
+guid: c274fd4f3324f1643ad75f1b233f0f5d
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Bip001
+    100002: Bip001 Footsteps
+    100004: Bip001 Head
+    100006: Bip001 HeadNub
+    100008: Bip001 L Calf
+    100010: Bip001 L Clavicle
+    100012: Bip001 L Finger0
+    100014: Bip001 L Finger01
+    100016: Bip001 L Finger02
+    100018: Bip001 L Finger0Nub
+    100020: Bip001 L Finger1
+    100022: Bip001 L Finger11
+    100024: Bip001 L Finger12
+    100026: Bip001 L Finger13
+    100028: Bip001 L Finger1Nub
+    100030: Bip001 L Finger2
+    100032: Bip001 L Finger21
+    100034: Bip001 L Finger22
+    100036: Bip001 L Finger23
+    100038: Bip001 L Finger2Nub
+    100040: Bip001 L Finger3
+    100042: Bip001 L Finger31
+    100044: Bip001 L Finger32
+    100046: Bip001 L Finger33
+    100048: Bip001 L Finger3Nub
+    100050: Bip001 L Finger4
+    100052: Bip001 L Finger41
+    100054: Bip001 L Finger42
+    100056: Bip001 L Finger43
+    100058: Bip001 L Finger4Nub
+    100060: Bip001 L Foot
+    100062: Bip001 L Forearm
+    100064: Bip001 L ForeTwist
+    100066: Bip001 L ForeTwist1
+    100068: Bip001 L Hand
+    100070: Bip001 L Thigh
+    100072: Bip001 L Toe0
+    100074: Bip001 L Toe01
+    100076: Bip001 L Toe02
+    100078: Bip001 L Toe0Nub
+    100080: Bip001 L Toe1
+    100082: Bip001 L Toe11
+    100084: Bip001 L Toe12
+    100086: Bip001 L Toe1Nub
+    100088: Bip001 L Toe2
+    100090: Bip001 L Toe21
+    100092: Bip001 L Toe22
+    100094: Bip001 L Toe2Nub
+    100096: Bip001 L Toe3
+    100098: Bip001 L Toe31
+    100100: Bip001 L Toe32
+    100102: Bip001 L Toe3Nub
+    100104: Bip001 L Toe4
+    100106: Bip001 L Toe41
+    100108: Bip001 L Toe42
+    100110: Bip001 L Toe4Nub
+    100112: Bip001 L UpperArm
+    100114: Bip001 LCalfTwist
+    100116: Bip001 LCalfTwist1
+    100118: Bip001 Neck
+    100120: Bip001 Neck1
+    100122: Bip001 Pelvis
+    100124: Bip001 Ponytail1
+    100126: Bip001 Ponytail1Nub
+    100128: Bip001 R Calf
+    100130: Bip001 R Clavicle
+    100132: Bip001 R Finger0
+    100134: Bip001 R Finger01
+    100136: Bip001 R Finger02
+    100138: Bip001 R Finger0Nub
+    100140: Bip001 R Finger1
+    100142: Bip001 R Finger11
+    100144: Bip001 R Finger12
+    100146: Bip001 R Finger13
+    100148: Bip001 R Finger1Nub
+    100150: Bip001 R Finger2
+    100152: Bip001 R Finger21
+    100154: Bip001 R Finger22
+    100156: Bip001 R Finger23
+    100158: Bip001 R Finger2Nub
+    100160: Bip001 R Finger3
+    100162: Bip001 R Finger31
+    100164: Bip001 R Finger32
+    100166: Bip001 R Finger33
+    100168: Bip001 R Finger3Nub
+    100170: Bip001 R Finger4
+    100172: Bip001 R Finger41
+    100174: Bip001 R Finger42
+    100176: Bip001 R Finger43
+    100178: Bip001 R Finger4Nub
+    100180: Bip001 R Foot
+    100182: Bip001 R Forearm
+    100184: Bip001 R ForeTwist
+    100186: Bip001 R ForeTwist1
+    100188: Bip001 R Hand
+    100190: Bip001 R Thigh
+    100192: Bip001 R Toe0
+    100194: Bip001 R Toe01
+    100196: Bip001 R Toe02
+    100198: Bip001 R Toe0Nub
+    100200: Bip001 R Toe1
+    100202: Bip001 R Toe11
+    100204: Bip001 R Toe12
+    100206: Bip001 R Toe1Nub
+    100208: Bip001 R Toe2
+    100210: Bip001 R Toe21
+    100212: Bip001 R Toe22
+    100214: Bip001 R Toe2Nub
+    100216: Bip001 R Toe3
+    100218: Bip001 R Toe31
+    100220: Bip001 R Toe32
+    100222: Bip001 R Toe3Nub
+    100224: Bip001 R Toe4
+    100226: Bip001 R Toe41
+    100228: Bip001 R Toe42
+    100230: Bip001 R Toe4Nub
+    100232: Bip001 R UpperArm
+    100234: Bip001 RCalfTwist
+    100236: Bip001 RCalfTwist1
+    100238: Bip001 Spine
+    100240: Bip001 Spine1
+    100242: Bip001 Spine2
+    100244: mr Area Omni01
+    100246: mr Area Omni02
+    100248: Object047
+    100250: Object167
+    100252: Object168
+    100254: Object169
+    100256: Object170
+    100258: Object171
+    100260: Object172
+    100262: Object173
+    100264: Object174
+    100266: Object175
+    100268: Object176
+    100270: Object177
+    100272: Object178
+    100274: Object179
+    100276: Object181
+    100278: Object182
+    100280: Object183
+    100282: Object184
+    100284: Object185
+    100286: Object186
+    100288: Object187
+    100290: Object188
+    100292: Object189
+    100294: Object190
+    100296: Object191
+    100298: Object192
+    100300: Object193
+    100302: Object194
+    100304: Object195
+    100306: Object196
+    100308: Object197
+    100310: Object198
+    100312: Object199
+    100314: Object200
+    100316: Object201
+    100318: Object202
+    100320: Object203
+    100322: Object204
+    100324: Object205
+    100326: Object206
+    100328: Object207
+    100330: Object208
+    100332: Object209
+    100334: Object210
+    100336: Object211
+    100338: Object212
+    100340: Object213
+    100342: Object214
+    100344: Object215
+    100346: Object216
+    100348: Object217
+    100350: Object218
+    100352: Object219
+    100354: Object220
+    100356: Object221
+    100358: Object222
+    100360: Object223
+    100362: Object224
+    100364: Object225
+    100366: Object226
+    100368: Object227
+    100370: Object228
+    100372: Object229
+    100374: Object230
+    100376: Object231
+    100378: Object232
+    100380: Object233
+    100382: Object234
+    100384: Object235
+    100386: Object236
+    100388: Object237
+    100390: Object238
+    100392: Object239
+    100394: Object240
+    100396: Object241
+    100398: Object242
+    100400: Object243
+    100402: Object244
+    100404: Object245
+    100406: Object250
+    100408: Object251
+    100410: Object252
+    100412: Object253
+    100414: Object254
+    100416: Particle View 01
+    100418: //RootNode
+    100420: Sky01
+    400000: Bip001
+    400002: Bip001 Footsteps
+    400004: Bip001 Head
+    400006: Bip001 HeadNub
+    400008: Bip001 L Calf
+    400010: Bip001 L Clavicle
+    400012: Bip001 L Finger0
+    400014: Bip001 L Finger01
+    400016: Bip001 L Finger02
+    400018: Bip001 L Finger0Nub
+    400020: Bip001 L Finger1
+    400022: Bip001 L Finger11
+    400024: Bip001 L Finger12
+    400026: Bip001 L Finger13
+    400028: Bip001 L Finger1Nub
+    400030: Bip001 L Finger2
+    400032: Bip001 L Finger21
+    400034: Bip001 L Finger22
+    400036: Bip001 L Finger23
+    400038: Bip001 L Finger2Nub
+    400040: Bip001 L Finger3
+    400042: Bip001 L Finger31
+    400044: Bip001 L Finger32
+    400046: Bip001 L Finger33
+    400048: Bip001 L Finger3Nub
+    400050: Bip001 L Finger4
+    400052: Bip001 L Finger41
+    400054: Bip001 L Finger42
+    400056: Bip001 L Finger43
+    400058: Bip001 L Finger4Nub
+    400060: Bip001 L Foot
+    400062: Bip001 L Forearm
+    400064: Bip001 L ForeTwist
+    400066: Bip001 L ForeTwist1
+    400068: Bip001 L Hand
+    400070: Bip001 L Thigh
+    400072: Bip001 L Toe0
+    400074: Bip001 L Toe01
+    400076: Bip001 L Toe02
+    400078: Bip001 L Toe0Nub
+    400080: Bip001 L Toe1
+    400082: Bip001 L Toe11
+    400084: Bip001 L Toe12
+    400086: Bip001 L Toe1Nub
+    400088: Bip001 L Toe2
+    400090: Bip001 L Toe21
+    400092: Bip001 L Toe22
+    400094: Bip001 L Toe2Nub
+    400096: Bip001 L Toe3
+    400098: Bip001 L Toe31
+    400100: Bip001 L Toe32
+    400102: Bip001 L Toe3Nub
+    400104: Bip001 L Toe4
+    400106: Bip001 L Toe41
+    400108: Bip001 L Toe42
+    400110: Bip001 L Toe4Nub
+    400112: Bip001 L UpperArm
+    400114: Bip001 LCalfTwist
+    400116: Bip001 LCalfTwist1
+    400118: Bip001 Neck
+    400120: Bip001 Neck1
+    400122: Bip001 Pelvis
+    400124: Bip001 Ponytail1
+    400126: Bip001 Ponytail1Nub
+    400128: Bip001 R Calf
+    400130: Bip001 R Clavicle
+    400132: Bip001 R Finger0
+    400134: Bip001 R Finger01
+    400136: Bip001 R Finger02
+    400138: Bip001 R Finger0Nub
+    400140: Bip001 R Finger1
+    400142: Bip001 R Finger11
+    400144: Bip001 R Finger12
+    400146: Bip001 R Finger13
+    400148: Bip001 R Finger1Nub
+    400150: Bip001 R Finger2
+    400152: Bip001 R Finger21
+    400154: Bip001 R Finger22
+    400156: Bip001 R Finger23
+    400158: Bip001 R Finger2Nub
+    400160: Bip001 R Finger3
+    400162: Bip001 R Finger31
+    400164: Bip001 R Finger32
+    400166: Bip001 R Finger33
+    400168: Bip001 R Finger3Nub
+    400170: Bip001 R Finger4
+    400172: Bip001 R Finger41
+    400174: Bip001 R Finger42
+    400176: Bip001 R Finger43
+    400178: Bip001 R Finger4Nub
+    400180: Bip001 R Foot
+    400182: Bip001 R Forearm
+    400184: Bip001 R ForeTwist
+    400186: Bip001 R ForeTwist1
+    400188: Bip001 R Hand
+    400190: Bip001 R Thigh
+    400192: Bip001 R Toe0
+    400194: Bip001 R Toe01
+    400196: Bip001 R Toe02
+    400198: Bip001 R Toe0Nub
+    400200: Bip001 R Toe1
+    400202: Bip001 R Toe11
+    400204: Bip001 R Toe12
+    400206: Bip001 R Toe1Nub
+    400208: Bip001 R Toe2
+    400210: Bip001 R Toe21
+    400212: Bip001 R Toe22
+    400214: Bip001 R Toe2Nub
+    400216: Bip001 R Toe3
+    400218: Bip001 R Toe31
+    400220: Bip001 R Toe32
+    400222: Bip001 R Toe3Nub
+    400224: Bip001 R Toe4
+    400226: Bip001 R Toe41
+    400228: Bip001 R Toe42
+    400230: Bip001 R Toe4Nub
+    400232: Bip001 R UpperArm
+    400234: Bip001 RCalfTwist
+    400236: Bip001 RCalfTwist1
+    400238: Bip001 Spine
+    400240: Bip001 Spine1
+    400242: Bip001 Spine2
+    400244: mr Area Omni01
+    400246: mr Area Omni02
+    400248: Object047
+    400250: Object167
+    400252: Object168
+    400254: Object169
+    400256: Object170
+    400258: Object171
+    400260: Object172
+    400262: Object173
+    400264: Object174
+    400266: Object175
+    400268: Object176
+    400270: Object177
+    400272: Object178
+    400274: Object179
+    400276: Object181
+    400278: Object182
+    400280: Object183
+    400282: Object184
+    400284: Object185
+    400286: Object186
+    400288: Object187
+    400290: Object188
+    400292: Object189
+    400294: Object190
+    400296: Object191
+    400298: Object192
+    400300: Object193
+    400302: Object194
+    400304: Object195
+    400306: Object196
+    400308: Object197
+    400310: Object198
+    400312: Object199
+    400314: Object200
+    400316: Object201
+    400318: Object202
+    400320: Object203
+    400322: Object204
+    400324: Object205
+    400326: Object206
+    400328: Object207
+    400330: Object208
+    400332: Object209
+    400334: Object210
+    400336: Object211
+    400338: Object212
+    400340: Object213
+    400342: Object214
+    400344: Object215
+    400346: Object216
+    400348: Object217
+    400350: Object218
+    400352: Object219
+    400354: Object220
+    400356: Object221
+    400358: Object222
+    400360: Object223
+    400362: Object224
+    400364: Object225
+    400366: Object226
+    400368: Object227
+    400370: Object228
+    400372: Object229
+    400374: Object230
+    400376: Object231
+    400378: Object232
+    400380: Object233
+    400382: Object234
+    400384: Object235
+    400386: Object236
+    400388: Object237
+    400390: Object238
+    400392: Object239
+    400394: Object240
+    400396: Object241
+    400398: Object242
+    400400: Object243
+    400402: Object244
+    400404: Object245
+    400406: Object250
+    400408: Object251
+    400410: Object252
+    400412: Object253
+    400414: Object254
+    400416: Particle View 01
+    400418: //RootNode
+    400420: Sky01
+    2100000: Skeleton
+    2300000: Object047
+    2300002: Object167
+    2300004: Object168
+    2300006: Object170
+    2300008: Object171
+    2300010: Object172
+    2300012: Object173
+    2300014: Object174
+    2300016: Object175
+    2300018: Object176
+    2300020: Object177
+    2300022: Object178
+    2300024: Object179
+    2300026: Object181
+    2300028: Object182
+    2300030: Object183
+    2300032: Object184
+    2300034: Object185
+    2300036: Object186
+    2300038: Object187
+    2300040: Object188
+    2300042: Object189
+    2300044: Object190
+    2300046: Object191
+    2300048: Object192
+    2300050: Object193
+    2300052: Object194
+    2300054: Object195
+    2300056: Object196
+    2300058: Object197
+    2300060: Object198
+    2300062: Object199
+    2300064: Object200
+    2300066: Object201
+    2300068: Object202
+    2300070: Object203
+    2300072: Object204
+    2300074: Object205
+    2300076: Object206
+    2300078: Object207
+    2300080: Object208
+    2300082: Object209
+    2300084: Object210
+    2300086: Object211
+    2300088: Object212
+    2300090: Object213
+    2300092: Object214
+    2300094: Object215
+    2300096: Object216
+    2300098: Object217
+    2300100: Object218
+    2300102: Object219
+    2300104: Object220
+    2300106: Object221
+    2300108: Object222
+    2300110: Object223
+    2300112: Object224
+    2300114: Object225
+    2300116: Object226
+    2300118: Object227
+    2300120: Object228
+    2300122: Object229
+    2300124: Object230
+    2300126: Object231
+    2300128: Object232
+    2300130: Object233
+    2300132: Object234
+    2300134: Object235
+    2300136: Object236
+    2300138: Object237
+    2300140: Object238
+    2300142: Object239
+    2300144: Object240
+    2300146: Object241
+    2300148: Object242
+    2300150: Object243
+    2300152: Object244
+    2300154: Object245
+    2300156: Object250
+    2300158: Object251
+    2300160: Object252
+    2300162: Object253
+    2300164: Object254
+    3300000: Object047
+    3300002: Object167
+    3300004: Object168
+    3300006: Object170
+    3300008: Object171
+    3300010: Object172
+    3300012: Object173
+    3300014: Object174
+    3300016: Object175
+    3300018: Object176
+    3300020: Object177
+    3300022: Object178
+    3300024: Object179
+    3300026: Object181
+    3300028: Object182
+    3300030: Object183
+    3300032: Object184
+    3300034: Object185
+    3300036: Object186
+    3300038: Object187
+    3300040: Object188
+    3300042: Object189
+    3300044: Object190
+    3300046: Object191
+    3300048: Object192
+    3300050: Object193
+    3300052: Object194
+    3300054: Object195
+    3300056: Object196
+    3300058: Object197
+    3300060: Object198
+    3300062: Object199
+    3300064: Object200
+    3300066: Object201
+    3300068: Object202
+    3300070: Object203
+    3300072: Object204
+    3300074: Object205
+    3300076: Object206
+    3300078: Object207
+    3300080: Object208
+    3300082: Object209
+    3300084: Object210
+    3300086: Object211
+    3300088: Object212
+    3300090: Object213
+    3300092: Object214
+    3300094: Object215
+    3300096: Object216
+    3300098: Object217
+    3300100: Object218
+    3300102: Object219
+    3300104: Object220
+    3300106: Object221
+    3300108: Object222
+    3300110: Object223
+    3300112: Object224
+    3300114: Object225
+    3300116: Object226
+    3300118: Object227
+    3300120: Object228
+    3300122: Object229
+    3300124: Object230
+    3300126: Object231
+    3300128: Object232
+    3300130: Object233
+    3300132: Object234
+    3300134: Object235
+    3300136: Object236
+    3300138: Object237
+    3300140: Object238
+    3300142: Object239
+    3300144: Object240
+    3300146: Object241
+    3300148: Object242
+    3300150: Object243
+    3300152: Object244
+    3300154: Object245
+    3300156: Object250
+    3300158: Object251
+    3300160: Object252
+    3300162: Object253
+    3300164: Object254
+    4300000: Object175
+    4300002: Object176
+    4300004: Object174
+    4300006: Object177
+    4300008: Object183
+    4300010: Object182
+    4300012: Object181
+    4300014: Object187
+    4300016: Object186
+    4300018: Object185
+    4300020: Object184
+    4300022: Object199
+    4300024: Object194
+    4300026: Object193
+    4300028: Object188
+    4300030: Object198
+    4300032: Object195
+    4300034: Object192
+    4300036: Object189
+    4300038: Object197
+    4300040: Object196
+    4300042: Object191
+    4300044: Object190
+    4300046: Object179
+    4300048: Object167
+    4300050: Object172
+    4300052: Object202
+    4300054: Object201
+    4300056: Object200
+    4300058: Object210
+    4300060: Object209
+    4300062: Object208
+    4300064: Object207
+    4300066: Object214
+    4300068: Object213
+    4300070: Object212
+    4300072: Object211
+    4300074: Object218
+    4300076: Object217
+    4300078: Object216
+    4300080: Object215
+    4300082: Object178
+    4300084: Object206
+    4300086: Object205
+    4300088: Object204
+    4300090: Object203
+    4300092: Object168
+    4300094: Object173
+    4300096: Object241
+    4300098: Object240
+    4300100: Object221
+    4300102: Object242
+    4300104: Object239
+    4300106: Object222
+    4300108: Object243
+    4300110: Object238
+    4300112: Object223
+    4300114: Object244
+    4300116: Object237
+    4300118: Object224
+    4300120: Object245
+    4300122: Object236
+    4300124: Object225
+    4300126: Object220
+    4300128: Object170
+    4300130: Object254
+    4300132: Object231
+    4300134: Object230
+    4300136: Object253
+    4300138: Object232
+    4300140: Object229
+    4300142: Object252
+    4300144: Object233
+    4300146: Object228
+    4300148: Object251
+    4300150: Object234
+    4300152: Object227
+    4300154: Object250
+    4300156: Object235
+    4300158: Object226
+    4300160: Object219
+    4300162: Object171
+    4300164: Object047
+    4300166: Object169
+    7400000: Take 001
+    9500000: //RootNode
+    10800000: mr Area Omni01
+    10800002: mr Area Omni02
+    10800004: Sky01
+    13700000: Object169
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skeleton
+    second: {fileID: 2100000, guid: 1c449a46bc91e2e4dbaa24384d54bfb6, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\n\t'Bip001 Neck1' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 1
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
