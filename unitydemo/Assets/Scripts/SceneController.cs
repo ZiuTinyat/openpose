@@ -44,10 +44,21 @@ namespace opdemo
                 }
         }
 
+        public void NextScene()
+        {
+            SceneModelIndex++;
+        }
+
+        public void LastScene()
+        {
+            SceneModelIndex--;
+        }
+
         private void setHumanModel(int index)
         {
             if (index < 0)
             {
+                setHumanModel(HumanModels.Count + index % HumanModels.Count);
                 return;
             }
             else if (index >= HumanModels.Count)
@@ -68,6 +79,7 @@ namespace opdemo
         {
             if (index < 0)
             {
+                setSceneModel(SceneModels.Count + index % SceneModels.Count);
                 return;
             }
             else if (index >= SceneModels.Count)
