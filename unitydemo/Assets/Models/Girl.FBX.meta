@@ -1,0 +1,448 @@
+fileFormatVersion: 2
+guid: 79c9aa9e113013947854b2a96d6319dd
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Base Human
+    100002: Base HumanHead
+    100004: Base HumanLCalf
+    100006: Base HumanLCollarbone
+    100008: Base HumanLDigit11
+    100010: Base HumanLDigit11 1
+    100012: Base HumanLDigit12
+    100014: Base HumanLDigit13
+    100016: Base HumanLDigit21
+    100018: Base HumanLDigit22
+    100020: Base HumanLDigit23
+    100022: Base HumanLDigit31
+    100024: Base HumanLDigit32
+    100026: Base HumanLDigit33
+    100028: Base HumanLDigit41
+    100030: Base HumanLDigit42
+    100032: Base HumanLDigit43
+    100034: Base HumanLDigit51
+    100036: Base HumanLDigit52
+    100038: Base HumanLDigit53
+    100040: Base HumanLFoot
+    100042: Base HumanLForearm1
+    100044: Base HumanLForearm2
+    100046: Base HumanLForearm3
+    100048: Base HumanLPalm
+    100050: Base HumanLPlatform
+    100052: Base HumanLThigh
+    100054: Base HumanLUpperarm
+    100056: Base HumanNeck1
+    100058: Base HumanNeck2
+    100060: Base HumanPelvis
+    100062: Base HumanRCalf
+    100064: Base HumanRCollarbone
+    100066: Base HumanRDigit11
+    100068: Base HumanRDigit11 1
+    100070: Base HumanRDigit12
+    100072: Base HumanRDigit13
+    100074: Base HumanRDigit21
+    100076: Base HumanRDigit22
+    100078: Base HumanRDigit23
+    100080: Base HumanRDigit31
+    100082: Base HumanRDigit32
+    100084: Base HumanRDigit33
+    100086: Base HumanRDigit41
+    100088: Base HumanRDigit42
+    100090: Base HumanRDigit43
+    100092: Base HumanRDigit51
+    100094: Base HumanRDigit52
+    100096: Base HumanRDigit53
+    100098: Base HumanRFoot
+    100100: Base HumanRForearm1
+    100102: Base HumanRForearm2
+    100104: Base HumanRForearm3
+    100106: Base HumanRibcage
+    100108: Base HumanRPalm
+    100110: Base HumanRPlatform
+    100112: Base HumanRThigh
+    100114: Base HumanRUpperarm
+    100116: Base HumanSpine1
+    100118: Base HumanSpine2
+    100120: Base HumanSpine3
+    100122: Base HumanSpine4
+    100124: belt
+    100126: belt02
+    100128: body
+    100130: Bone001
+    100132: Bone003
+    100134: Bone004
+    100136: Bone005
+    100138: Bone006
+    100140: Bone007
+    100142: Bone008
+    100144: Bone009
+    100146: Bone010
+    100148: Bone011
+    100150: Bone012
+    100152: Bone013
+    100154: Bone014
+    100156: Bone015
+    100158: Bone016
+    100160: Bone017
+    100162: Bone018
+    100164: Bone019
+    100166: Bone020
+    100168: Bone021
+    100170: Bone022
+    100172: Bone023
+    100174: Bone024
+    100176: Bone025
+    100178: Bone026
+    100180: Bone027
+    100182: Bone028
+    100184: Bone029
+    100186: Bone030
+    100188: Bone032
+    100190: Bone033
+    100192: Bone034
+    100194: Bone036
+    100196: Bone038
+    100198: Bone040
+    100200: Bone042
+    100202: Bone043
+    100204: Bone044
+    100206: Bone045
+    100208: Bone046
+    100210: Bone047
+    100212: Bone048
+    100214: Bone049
+    100216: Bone050
+    100218: Bone051
+    100220: Bone052
+    100222: Bone053
+    100224: Bone054
+    100226: Bone057
+    100228: Bone058
+    100230: Bone059
+    100232: Bone060
+    100234: Camera001
+    100236: Camera001.Target
+    100238: Camera002
+    100240: Camera002.Target
+    100242: eye_L
+    100244: Eye_R
+    100246: //RootNode
+    100248: hear
+    100250: I_L
+    100252: I_R
+    100254: Plane013
+    100256: Plane014
+    100258: shorts
+    100260: shues
+    100262: Sky001
+    100264: T-shirt
+    100266: teeth_lower
+    100268: teeth_upper
+    100270: VRayLight001
+    100272: VRayLight002
+    100274: VRayLight003
+    100276: VRayLight004
+    100278: VRayLight005
+    400000: Base Human
+    400002: Base HumanHead
+    400004: Base HumanLCalf
+    400006: Base HumanLCollarbone
+    400008: Base HumanLDigit11
+    400010: Base HumanLDigit11 1
+    400012: Base HumanLDigit12
+    400014: Base HumanLDigit13
+    400016: Base HumanLDigit21
+    400018: Base HumanLDigit22
+    400020: Base HumanLDigit23
+    400022: Base HumanLDigit31
+    400024: Base HumanLDigit32
+    400026: Base HumanLDigit33
+    400028: Base HumanLDigit41
+    400030: Base HumanLDigit42
+    400032: Base HumanLDigit43
+    400034: Base HumanLDigit51
+    400036: Base HumanLDigit52
+    400038: Base HumanLDigit53
+    400040: Base HumanLFoot
+    400042: Base HumanLForearm1
+    400044: Base HumanLForearm2
+    400046: Base HumanLForearm3
+    400048: Base HumanLPalm
+    400050: Base HumanLPlatform
+    400052: Base HumanLThigh
+    400054: Base HumanLUpperarm
+    400056: Base HumanNeck1
+    400058: Base HumanNeck2
+    400060: Base HumanPelvis
+    400062: Base HumanRCalf
+    400064: Base HumanRCollarbone
+    400066: Base HumanRDigit11
+    400068: Base HumanRDigit11 1
+    400070: Base HumanRDigit12
+    400072: Base HumanRDigit13
+    400074: Base HumanRDigit21
+    400076: Base HumanRDigit22
+    400078: Base HumanRDigit23
+    400080: Base HumanRDigit31
+    400082: Base HumanRDigit32
+    400084: Base HumanRDigit33
+    400086: Base HumanRDigit41
+    400088: Base HumanRDigit42
+    400090: Base HumanRDigit43
+    400092: Base HumanRDigit51
+    400094: Base HumanRDigit52
+    400096: Base HumanRDigit53
+    400098: Base HumanRFoot
+    400100: Base HumanRForearm1
+    400102: Base HumanRForearm2
+    400104: Base HumanRForearm3
+    400106: Base HumanRibcage
+    400108: Base HumanRPalm
+    400110: Base HumanRPlatform
+    400112: Base HumanRThigh
+    400114: Base HumanRUpperarm
+    400116: Base HumanSpine1
+    400118: Base HumanSpine2
+    400120: Base HumanSpine3
+    400122: Base HumanSpine4
+    400124: belt
+    400126: belt02
+    400128: body
+    400130: Bone001
+    400132: Bone003
+    400134: Bone004
+    400136: Bone005
+    400138: Bone006
+    400140: Bone007
+    400142: Bone008
+    400144: Bone009
+    400146: Bone010
+    400148: Bone011
+    400150: Bone012
+    400152: Bone013
+    400154: Bone014
+    400156: Bone015
+    400158: Bone016
+    400160: Bone017
+    400162: Bone018
+    400164: Bone019
+    400166: Bone020
+    400168: Bone021
+    400170: Bone022
+    400172: Bone023
+    400174: Bone024
+    400176: Bone025
+    400178: Bone026
+    400180: Bone027
+    400182: Bone028
+    400184: Bone029
+    400186: Bone030
+    400188: Bone032
+    400190: Bone033
+    400192: Bone034
+    400194: Bone036
+    400196: Bone038
+    400198: Bone040
+    400200: Bone042
+    400202: Bone043
+    400204: Bone044
+    400206: Bone045
+    400208: Bone046
+    400210: Bone047
+    400212: Bone048
+    400214: Bone049
+    400216: Bone050
+    400218: Bone051
+    400220: Bone052
+    400222: Bone053
+    400224: Bone054
+    400226: Bone057
+    400228: Bone058
+    400230: Bone059
+    400232: Bone060
+    400234: Camera001
+    400236: Camera001.Target
+    400238: Camera002
+    400240: Camera002.Target
+    400242: eye_L
+    400244: Eye_R
+    400246: //RootNode
+    400248: hear
+    400250: I_L
+    400252: I_R
+    400254: Plane013
+    400256: Plane014
+    400258: shorts
+    400260: shues
+    400262: Sky001
+    400264: T-shirt
+    400266: teeth_lower
+    400268: teeth_upper
+    400270: VRayLight001
+    400272: VRayLight002
+    400274: VRayLight003
+    400276: VRayLight004
+    400278: VRayLight005
+    2100000: 'Material #32'
+    2100002: 20 - Default
+    2100004: 'Material #31'
+    2100006: 'Material #34'
+    2100008: 'Material #35'
+    2300000: belt
+    2300002: belt02
+    2300004: eye_L
+    2300006: Eye_R
+    2300008: hear
+    2300010: I_L
+    2300012: I_R
+    2300014: Plane013
+    2300016: Plane014
+    2300018: teeth_lower
+    2300020: teeth_upper
+    3300000: belt
+    3300002: belt02
+    3300004: eye_L
+    3300006: Eye_R
+    3300008: hear
+    3300010: I_L
+    3300012: I_R
+    3300014: Plane013
+    3300016: Plane014
+    3300018: teeth_lower
+    3300020: teeth_upper
+    4300000: shorts
+    4300002: T-shirt
+    4300004: Plane013
+    4300006: Plane014
+    4300008: shues
+    4300010: body
+    4300012: teeth_lower
+    4300014: hear
+    4300016: teeth_upper
+    4300018: I_L
+    4300020: eye_L
+    4300022: I_R
+    4300024: Eye_R
+    4300026: belt02
+    4300028: belt
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: body
+    13700002: shorts
+    13700004: shues
+    13700006: T-shirt
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 20 - Default
+    second: {fileID: 2100000, guid: b2eec52dbe93ee749846c3c8446e479b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #31'
+    second: {fileID: 2100000, guid: e78fd8901c2dfba4592f38ae8e3bd838, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #32'
+    second: {fileID: 2100000, guid: c84cde874deece34e888c164164d4e23, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #34'
+    second: {fileID: 2100000, guid: 7cf690aa19078224d9bab0624fbccb14, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #35'
+    second: {fileID: 2100000, guid: 2ec334c3faf078842adbe75d8b8d7fa5, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
+      in configuration does not match rotation in animation file:\n\t'Base HumanRibcage'
+      : rotation error = 23.248016 deg\n\t'Base HumanLForearm2' : rotation error =
+      1.210139 deg\n\t'Base HumanLPalm' : rotation error = 22.932632 deg\n\t'Base
+      HumanRForearm2' : rotation error = 17.989861 deg\n\t'Base HumanRPalm' : rotation
+      error = 97.280121 deg\n\t'Base HumanNeck2' : rotation error = 13.252775 deg\n"
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
+      improve retargeting quality.\n\t'Base HumanRDigit11' has translation animation
+      that will be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 0
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
