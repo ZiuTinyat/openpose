@@ -14,22 +14,32 @@ namespace opdemo
         //[SerializeField] KeyCode BackwardKey = KeyCode.S;
         //[SerializeField] KeyCode LeftKey = KeyCode.A;
         //[SerializeField] KeyCode RightKey = KeyCode.D;
-
+        [SerializeField] Transform CameraCenter;
+        [SerializeField] Transform CameraJoint;
         [SerializeField] Transform MyCamera;
 
         public Transform HumanCenter;
+
+        // Camera control
+        public float ControlDistanceSpeed = 1.1f;
+        public float ControlRotateSpeed = 240f;
+        public float MinDistance = 1.0f;
+        public Vector2 ControlRotateLimit = new Vector2(0f, 60f);
+
         public float FollowRotatingCoeff = 0.5f;
         public float FollowTranslatingCoeff = 0.3f;
-        public float RotatingStiff = 0.5f;
-        public float TranslatingStiff = 0.5f;
+        //public float RotatingStiff = 0.5f;
+        //public float TranslatingStiff = 0.5f;
+        private float DefaultDistance;
+        private Quaternion DefaultCenterRotation;
         private float InitDistance;
-        private Vector3 InitPos;
-        private Quaternion InitRotation;
+        //private Vector3 InitPos;
+        //private Quaternion InitRotation;
         private Vector3 GoalWatch;
         private Vector3 GoalPos;
 
         public static Transform FocusCenter { set { instance.HumanCenter = value; } get { return instance.HumanCenter; } }
-        public static Vector3 RotationCenter { set { instance.transform.position = value; } get { return instance.transform.position; } }
+        public static Vector3 CameraJointPosition { set { instance.CameraJoint.position = value; } get { return instance.CameraJoint.position; } }
 
         private void Awake()
         {
@@ -38,9 +48,18 @@ namespace opdemo
 
         private void Start()
         {
-            InitDistance = Vector3.Dot(GoalPos - MyCamera.position, MyCamera.forward);
-            InitPos = MyCamera.position;
-            InitRotation = MyCamera.rotation;
+            DefaultDistance = Vector3.Dot(GoalPos - MyCamera.position, MyCamera.forward);
+            DefaultCenterRotation = CameraCenter.localRotation;
+            InitDistance = DefaultDistance;
+            //InitPos = MyCamera.position;
+            //InitRotation = MyCamera.rotation;
+            
+        }
+
+        public void SetToDefault()
+        {
+            InitDistance = DefaultDistance;
+            CameraCenter.localRotation = DefaultCenterRotation;
         }
 
         private void SetGoalUpdate()
@@ -54,10 +73,10 @@ namespace opdemo
             // Rotation
             float angleDiff;
             Vector3 axisRotate;
-            Quaternion.FromToRotation(transform.forward, GoalWatch - transform.position).ToAngleAxis(out angleDiff, out axisRotate);
+            Quaternion.FromToRotation(CameraJoint.forward, GoalWatch - CameraJoint.position).ToAngleAxis(out angleDiff, out axisRotate);
             //float deltaAngle = FollowRotatingCoeff * Mathf.Sqrt(angleDiff) * Time.deltaTime; // index 1/2
             float deltaAngle = FollowRotatingCoeff * angleDiff * Mathf.Abs(angleDiff) * Time.deltaTime; // index 2
-            transform.Rotate(axisRotate, deltaAngle, Space.World);
+            CameraJoint.Rotate(axisRotate, deltaAngle, Space.World);
 
             // Translation
             float distanceDiff = Vector3.Dot(GoalPos - MyCamera.position, MyCamera.forward) - InitDistance;
@@ -75,11 +94,33 @@ namespace opdemo
             if (Input.GetKey(LeftKey)) move += Time.deltaTime * speed * Vector3.right;
             if (Input.GetKey(RightKey)) move += Time.deltaTime * speed * Vector3.left;
 
-            transform.Translate(move, Space.World);
+            CameraJoint.Translate(move, Space.World);
         }*/
+
+        private void MouseControlUpdate()
+        {
+            // Mouse input
+            Vector2 deltaScreenPos = new Vector2();
+            float deltaScroll = Input.GetAxis("Mouse ScrollWheel");
+            if (Input.GetMouseButton(0) || Input.GetMouseButton(1) || Input.GetMouseButton(2))
+            {
+                deltaScreenPos = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+            }
+
+            // Control camera
+            Vector3 euler = CameraCenter.localRotation.eulerAngles + new Vector3(-deltaScreenPos.y, deltaScreenPos.x, 0f) * ControlRotateSpeed * Time.deltaTime;
+            if (euler.x < ControlRotateLimit.x) euler.x = ControlRotateLimit.x;
+            else if (euler.x > ControlRotateLimit.y) euler.x = ControlRotateLimit.y;
+            CameraCenter.localRotation = Quaternion.Euler(euler);
+            if (deltaScroll > 0) InitDistance /= ControlDistanceSpeed;
+            else if (deltaScroll < 0) InitDistance *= ControlDistanceSpeed;
+            if (InitDistance < MinDistance) InitDistance *= ControlDistanceSpeed;
+            if (InitDistance * InitDistance > (CameraJoint.position - HumanCenter.position).sqrMagnitude) InitDistance /= ControlDistanceSpeed;
+        }
 
         void Update()
         {
+            MouseControlUpdate();
             SetGoalUpdate();
             MoveToGoalUpdate();
         }

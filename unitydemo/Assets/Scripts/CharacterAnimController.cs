@@ -7,9 +7,9 @@ namespace opdemo
 {
     public class CharacterAnimController : MonoBehaviour
     {
-        //[SerializeField] bool VisualizeJoint;
         //[SerializeField] GameObject JointObject;
-        [SerializeField] Vector3 Offset = new Vector3(0f, 1f, 0f);
+        static Vector3 Offset = new Vector3(0f, 1f, 0f);
+
         [SerializeField] bool AllowFacialAnim = false;
         [SerializeField] List<Transform> Joints;
         [SerializeField] List<Transform> FacialJoints;
@@ -32,7 +32,7 @@ namespace opdemo
                 if (Joints[i] == null) continue;
                 InitRotations.Add(i, Joints[i].rotation);
                 UpdatedRotations.Add(i, Joints[i].localRotation);
-                //if (VisualizeJoint) Instantiate(JointObject, Joints[i], false);
+                //Instantiate(JointObject, Joints[i], false);
             }
             InitRootPosition = Joints[0].position;
         }
@@ -50,6 +50,11 @@ namespace opdemo
         public Transform GetCenter()
         {
             return Joints[0];
+        }
+
+        public void Recenter()
+        {
+            Offset -= Joints[0].position - InitRootPosition;
         }
 
         private void UpdateModel()
@@ -85,7 +90,7 @@ namespace opdemo
         {
             if (Input.GetKeyDown(KeyCode.C))
             {
-                Offset -= Joints[0].position - InitRootPosition;
+                Recenter();
             }
             switch (Controller.Mode)
             {

@@ -54,6 +54,21 @@ namespace opdemo
             SceneModelIndex--;
         }
 
+        public void NextHuman()
+        {
+            HumanModelIndex++;
+        }
+
+        public void LastHuman()
+        {
+            HumanModelIndex--;
+        }
+
+        public void Recenter()
+        {
+            HumanModels[HumanModelIndex].GetComponent<CharacterAnimController>().Recenter();
+        }
+
         private void setHumanModel(int index)
         {
             if (index < 0)
@@ -99,11 +114,20 @@ namespace opdemo
         {
             if (Input.GetKeyDown(KeyCode.Comma))
             {
-                HumanModelIndex--;
+                LastHuman();
             }
             if (Input.GetKeyDown(KeyCode.Period))
             {
-                HumanModelIndex++;
+                NextHuman();
+            }
+
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                LastScene();
+            }
+            if (Input.GetKeyDown(KeyCode.Slash))
+            {
+                NextScene();
             }
         }
     }
