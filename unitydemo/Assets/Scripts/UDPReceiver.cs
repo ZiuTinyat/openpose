@@ -16,18 +16,31 @@ namespace opdemo
 
         // Threading
         private bool CloseThreadFlag = true;
-        private static Mutex ReceivingMutex = new Mutex();
+        private Mutex ReceivingMutex = new Mutex();
         private Thread receiveThread;
 
         // UDP receiver
         private UdpClient client;
         public int port = 8051; // define > init
 
+        // Data & timing
+        public float FrameDelayCoef = 1.2f;
         private string receivedData = "";
+        private float avgFrameTime = float.PositiveInfinity;
+        private float currentFrameLength = 0f;
+        private bool serverActive = false;
+        private bool newDataFlag = false;
 
         // Interface
         public static int PortNumber { get { return instance.port; } }
         public static string ReceivedData { get { return instance.receivedData; } }
+        public static float AvgFrameTime { get { return instance.avgFrameTime * instance.FrameDelayCoef; } }
+        public static float CurrentFrameLength { get { return instance.currentFrameLength; } }
+        public static float EstimatedRestFrameTime { get { return AvgFrameTime - CurrentFrameLength; } }
+        public static bool IsDataNew()
+        {
+            return instance.newDataFlag;
+        }
         public static void BeginReceiving()
         {
             instance.StartReceivingThread();
@@ -70,10 +83,8 @@ namespace opdemo
                 try
                 {
                     IPEndPoint anyIP = new IPEndPoint(IPAddress.Any, 0);
-                    client.Receive(ref anyIP);
                     byte[] data = client.Receive(ref anyIP);
                     string text = Encoding.UTF8.GetString(data);
-                    Debug.Log(">> " + text);
                     InputText(text);
                 }
                 catch (Exception err)
@@ -101,7 +112,45 @@ namespace opdemo
 
         private void InputText(string text)
         {
+            //Debug.Log(">> " + text);
             receivedData = text;
+            newDataFlag = true;
+
+            // timing
+            float thisFrameTime = currentFrameLength;
+            currentFrameLength = 0f;
+            if (avgFrameTime == float.PositiveInfinity)
+            {
+                if (!serverActive) // first package
+                {
+                    serverActive = true;
+                } else // second package
+                {
+                    avgFrameTime = thisFrameTime;
+                }
+            } else // continueous receiving
+            {
+                avgFrameTime = 0.75f * avgFrameTime + 0.25f * thisFrameTime;
+            }
+        }
+
+        private void Update()
+        {
+            if (serverActive)
+            {
+                currentFrameLength += Time.deltaTime;
+            }
+            if (currentFrameLength > 5f) // threshold to inactive
+            {
+                serverActive = false;
+                avgFrameTime = float.PositiveInfinity;
+                currentFrameLength = 0f;
+            }
+        }
+
+        private void LateUpdate()
+        {
+            newDataFlag = false;
         }
 
         // In case of abrupt exit of program
