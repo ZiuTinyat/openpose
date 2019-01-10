@@ -25,7 +25,7 @@ namespace op
         unsigned long long subIdMax; /**< Datum maximum sub-ID. Used to sort the Datums if multi-threading is used. */
 
         /**
-         * Name used when saving the data to disk (e.g. `write_images` or `write_keypoint` flags in the demo).
+         * Name used when saving the data to disk (e.g., `write_images` or `write_keypoint` flags in the demo).
          */
         std::string name;
 
@@ -41,7 +41,7 @@ namespace op
          * Original image to be processed in cv::Mat uchar format.
          * Size: (input_width x input_height) x 3 channels
          */
-        cv::Mat cvInputData;
+        cv::Mat cvInputData; //forget for now
 
         /**
          * Original image to be processed in Array<float> format.
@@ -52,31 +52,36 @@ namespace op
          * Vector size: #scales
          * Each array size: 3 x input_net_height x input_net_width
          */
-        std::vector<Array<float>> inputNetData;
+        std::vector<Array<float>> inputNetData;// forget for now
 
         /**
          * Rendered image in Array<float> format.
          * It consists of a blending of the cvInputData and the pose/body part(s) heatmap/PAF(s).
-         * If rendering is disabled (e.g. `no_render_pose` flag in the demo), outputData will be empty.
+         * If rendering is disabled (e.g., `no_render_pose` flag in the demo), outputData will be empty.
          * Size: 3 x output_net_height x output_net_width
          */
-        Array<float> outputData;
+        Array<float> outputData; // forget for now
 
         /**
          * Rendered image in cv::Mat uchar format.
-         * It has been resized to the desired output resolution (e.g. `resolution` flag in the demo).
+         * It has been resized to the desired output resolution (e.g., `resolution` flag in the demo).
          * If outputData is empty, cvOutputData will also be empty.
          * Size: (output_height x output_width) x 3 channels
          */
-        cv::Mat cvOutputData;
+        cv::Mat cvOutputData; // forget for now // .empty()
+
+        /**
+         * Rendered 3D image in cv::Mat uchar format.
+         */
+        cv::Mat cvOutputData3D;
 
         // ------------------------------ Resulting Array<float> data parameters ------------------------------ //
         /**
          * Body pose (x,y,score) locations for each person in the image.
-         * It has been resized to the desired output resolution (e.g. `resolution` flag in the demo).
-         * Size: #people x #body parts (e.g. 18 for COCO or 15 for MPI) x 3 ((x,y) coordinates + score)
+         * It has been resized to the desired output resolution (e.g., `resolution` flag in the demo).
+         * Size: #people x #body parts (e.g., 18 for COCO or 15 for MPI) x 3 ((x,y) coordinates + score)
          */
-        Array<float> poseKeypoints;
+        Array<float> poseKeypoints; // have already .empty()
 
         /**
          * People ID
@@ -85,17 +90,17 @@ namespace op
          * If either person identification is disabled or poseKeypoints is empty, poseIds will also be empty.
          * Size: #people
          */
-        Array<long long> poseIds;
+        Array<long long> poseIds; // .empty()
 
         /**
          * Body pose global confidence/score for each person in the image.
          * It does not only consider the score of each body keypoint, but also the score of each PAF association.
          * Optimized for COCO evaluation metric.
-         * It will highly penalyze people with missing body parts (e.g. cropped people on the borders of the image).
+         * It will highly penalyze people with missing body parts (e.g., cropped people on the borders of the image).
          * If poseKeypoints is empty, poseScores will also be empty.
          * Size: #people
          */
-        Array<float> poseScores;
+        Array<float> poseScores; // .empty() .getVolume()
 
         /**
          * Body pose heatmaps (body parts, background and/or PAFs) for the whole image.
@@ -109,7 +114,7 @@ namespace op
          * `heatmaps_scale` flag in {OpenPose_path}doc/demo_overview.md for more details.
          * Size: #heatmaps x output_net_height x output_net_width
          */
-        Array<float> poseHeatMaps;
+        Array<float> poseHeatMaps; // .empty()
 
         /**
          * Body pose candidates for the whole image.
@@ -120,35 +125,37 @@ namespace op
          * Rather than vector, it should ideally be:
          * std::array<std::vector<std::array<float,3>>, #BP> poseCandidates;
          */
-        std::vector<std::vector<std::array<float,3>>> poseCandidates;
+        std::vector<std::vector<std::array<float,3>>> poseCandidates; // .empty()
+		//for (auto& poseCandidate : poseCandidates)
+		//	poseCandidate.insert(poseCandidate.begin(), { (float)poseCandidates.size(), 0, 0 });
 
         /**
          * Face detection locations (x,y,width,height) for each person in the image.
          * It is resized to cvInputData.size().
          * Size: #people
          */
-        std::vector<Rectangle<float>> faceRectangles;
+        std::vector<Rectangle<float>> faceRectangles; // .empty()
 
         /**
          * Face keypoints (x,y,score) locations for each person in the image.
          * It has been resized to the same resolution as `poseKeypoints`.
          * Size: #people x #face parts (70) x 3 ((x,y) coordinates + score)
          */
-        Array<float> faceKeypoints;
+        Array<float> faceKeypoints; // already have // .empty()
 
         /**
          * Face pose heatmaps (face parts and/or background) for the whole image.
          * Analogous of bodyHeatMaps applied to face. However, there is no PAFs and the size is different.
          * Size: #people x #face parts (70) x output_net_height x output_net_width
          */
-        Array<float> faceHeatMaps;
+        Array<float> faceHeatMaps; // .empty()
 
         /**
          * Hand detection locations (x,y,width,height) for each person in the image.
          * It is resized to cvInputData.size().
          * Size: #people
          */
-        std::vector<std::array<Rectangle<float>, 2>> handRectangles;
+        std::vector<std::array<Rectangle<float>, 2>> handRectangles; // .empty()
 
         /**
          * Hand keypoints (x,y,score) locations for each person in the image.
@@ -156,28 +163,28 @@ namespace op
          * handKeypoints[0] corresponds to left hands, and handKeypoints[1] to right ones.
          * Size each Array: #people x #hand parts (21) x 3 ((x,y) coordinates + score)
          */
-        std::array<Array<float>, 2> handKeypoints;
+        std::array<Array<float>, 2> handKeypoints; // have // handKeypoints[0].empty()
 
         /**
          * Hand pose heatmaps (hand parts and/or background) for the whole image.
          * Analogous of faceHeatMaps applied to face.
          * Size each Array: #people x #hand parts (21) x output_net_height x output_net_width
          */
-        std::array<Array<float>, 2> handHeatMaps;
+        std::array<Array<float>, 2> handHeatMaps; // handHeatMaps[0].empty()
 
         // ---------------------------------------- 3-D Reconstruction parameters ---------------------------------------- //
         /**
          * Body pose (x,y,z,score) locations for each person in the image.
-         * Size: #people x #body parts (e.g. 18 for COCO or 15 for MPI) x 4 ((x,y,z) coordinates + score)
+         * Size: #people x #body parts (e.g., 18 for COCO or 15 for MPI) x 4 ((x,y,z) coordinates + score)
          */
-        Array<float> poseKeypoints3D;
+        Array<float> poseKeypoints3D; //.empty()
 
         /**
          * Face keypoints (x,y,z,score) locations for each person in the image.
          * It has been resized to the same resolution as `poseKeypoints3D`.
          * Size: #people x #face parts (70) x 4 ((x,y,z) coordinates + score)
          */
-        Array<float> faceKeypoints3D;
+        Array<float> faceKeypoints3D; //.empty()
 
         /**
          * Hand keypoints (x,y,z,score) locations for each person in the image.
@@ -190,17 +197,17 @@ namespace op
         /**
          * 3x4 camera matrix of the camera (equivalent to cameraIntrinsics * cameraExtrinsics).
          */
-        cv::Mat cameraMatrix;
+        cv::Mat cameraMatrix; //.empty()
 
         /**
          * 3x4 extrinsic parameters of the camera.
          */
-        cv::Mat cameraExtrinsics;
+        cv::Mat cameraExtrinsics; //.empty()
 
         /**
          * 3x3 intrinsic parameters of the camera.
          */
-        cv::Mat cameraIntrinsics;
+        cv::Mat cameraIntrinsics; //.empty()
 
         // ---------------------------------------- Other (internal) parameters ---------------------------------------- //
         /**
@@ -384,10 +391,11 @@ namespace op
     };
 
     // Defines for Datum. Added here rather than in `macros.hpp` to avoid circular dependencies
-    #define DATUM_BASE_NO_PTR std::vector<Datum>
-    #define DATUM_BASE std::shared_ptr<DATUM_BASE_NO_PTR>
-    #define DEFINE_TEMPLATE_DATUM(templateName) template class OP_API templateName<DATUM_BASE>
-    #define COMPILE_TEMPLATE_DATUM(templateName) extern DEFINE_TEMPLATE_DATUM(templateName)
+    #define BASE_DATUM Datum
+    #define BASE_DATUMS std::vector<std::shared_ptr<BASE_DATUM>>
+    #define BASE_DATUMS_SH std::shared_ptr<BASE_DATUMS>
+    #define DEFINE_TEMPLATE_DATUM(templateName) template class OP_API templateName<BASE_DATUMS_SH>
+    #define COMPILE_TEMPLATE_DATUM(templateName) extern template class templateName<BASE_DATUMS_SH>
 }
 
 #endif // OPENPOSE_CORE_DATUM_HPP
